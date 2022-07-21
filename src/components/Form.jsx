@@ -12,7 +12,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState,useEffect } from 'react';
 import { db } from '../firebase/firebase';
-import { set, ref, push, onValue, remove, update } from 'firebase/database';
+import { set, ref, push, onValue} from 'firebase/database';
 
 
 const Form = ({setContactList}) => {
@@ -56,7 +56,7 @@ const Form = ({setContactList}) => {
         })
     }, [])
     return (
-        <form style={{ padding: "4rem"}} onSubmit={writeToDatabase}>
+        <form style={{ padding: "4rem" }} onSubmit={writeToDatabase}>
             <Typography variant="h4" component="h3">
                 New Contact
             </Typography>

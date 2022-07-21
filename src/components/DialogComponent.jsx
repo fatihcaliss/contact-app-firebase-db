@@ -14,7 +14,6 @@ import { ref, update } from 'firebase/database';
 
 
 export default function DialogComponent({ open,setOpen,setUpdateInfo,updateInfo }) {    
-
     const handleClose = () => {
         setOpen(false);
     };
