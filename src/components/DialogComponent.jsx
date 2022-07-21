@@ -11,38 +11,24 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { db } from '../firebase/firebase';
 import { ref, update } from 'firebase/database';
-import { useState } from 'react';
 
 
-export default function DialogComponent({ id, name, phone, gender, open, setOpen }) {
-    
-    // const [newName, setNewName] = useState(name);
-    // const [newPhone, setNewPhone] = useState(phone);
-    // const [newGender, setNewGender] = useState(gender);
-    // const [newId, setNewId] = useState(id);
+export default function DialogComponent({ open,setOpen,setUpdateInfo,updateInfo }) {    
 
-    
-    const [info, setInfo] = React.useState({
-        id: id,
-        name: name,
-        phone: phone,
-        gender: gender
-    });
-    console.log(name);
     const handleClose = () => {
         setOpen(false);
     };
     const handleChange = (event) => {
-        setInfo({
-            ...info,
+        setUpdateInfo({
+            ...updateInfo,
             [event.target.name]:event.target.value
         })
     };
     const editContact = () => {
-        update(ref(db, 'Contacts/' + id),{
-            name:info.name,
-            gender:info.gender,
-            phone:info.phone
+        update(ref(db, 'Contacts/' + updateInfo.id),{
+            name:updateInfo.name,
+            gender:updateInfo.gender,
+            phone:updateInfo.phone
         })
         handleClose();
     }
@@ -59,8 +45,7 @@ export default function DialogComponent({ id, name, phone, gender, open, setOpen
                         name="name"
                         fullWidth
                         variant="standard"
-                        value={info.name}
-                        // onChange={(e)=> setNewName(e.target.value)}
+                        value={updateInfo.name}
                         onChange={handleChange}
                     />
                     <TextField
@@ -72,8 +57,8 @@ export default function DialogComponent({ id, name, phone, gender, open, setOpen
                         type="number"
                         fullWidth
                         variant="standard"
-                        value={info.phone}
-                        // onChange={(e)=> setNewPhone(e.target.value)}
+                        value={updateInfo.phone}
+                        
                         onChange={handleChange}
                     />
                     <Box sx={{ minWidth: 120, marginTop: "1rem" }}>
@@ -82,10 +67,9 @@ export default function DialogComponent({ id, name, phone, gender, open, setOpen
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="gender"
-                                value={info.gender}
+                                value={updateInfo.gender}
                                 label="Gender"
-                                name="gender"
-                                // onChange={(e)=> setNewGender(e.target.value)}
+                                name="gender"                         
                                 onChange={handleChange}
                             >
                                 <MenuItem value="male">Male</MenuItem>

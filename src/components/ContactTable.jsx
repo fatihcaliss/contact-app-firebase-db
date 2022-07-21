@@ -102,7 +102,7 @@ export default function ContactTable({ contactList }) {
                                         })}
                                         <TableCell><EditIcon sx={{ color: "blue", cursor: "pointer" }} onClick={()=> handleEdit(row.id, row.name, row.phone, row.gender)}/></TableCell>
                                         <TableCell><DeleteIcon sx={{ color: "red", cursor: "pointer" }} onClick={()=> deleteContact(row.id)} /></TableCell>
-                                        <DialogComponent {...updateInfo} open={open} setOpen={setOpen}/>
+                                        <DialogComponent updateInfo={updateInfo} open={open} setOpen={setOpen} setUpdateInfo={setUpdateInfo}/>
                                     </TableRow>
                                 );
                             })}

@@ -9,7 +9,7 @@ const Main = () => {
   const [contactList, setContactList] = useState([]);
 
     return (
-        <Grid container sx={{ marginTop: '4rem',alignItems:"center" }}>
+        <Grid container sx={{ marginTop: '4rem',alignItems:"center"}}>
           <Grid item xs={12} md={4}>
             <Form contactList={contactList} setContactList={setContactList}/>
           </Grid>

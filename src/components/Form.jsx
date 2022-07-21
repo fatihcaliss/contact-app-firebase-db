@@ -56,7 +56,7 @@ const Form = ({setContactList}) => {
         })
     }, [])
     return (
-        <form style={{ padding: "4rem" }} onSubmit={writeToDatabase}>
+        <form style={{ padding: "4rem"}} onSubmit={writeToDatabase}>
             <Typography variant="h4" component="h3">
                 New Contact
             </Typography>
