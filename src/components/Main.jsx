@@ -10,10 +10,10 @@ const Main = () => {
 
     return (
         <Grid container sx={{ marginTop: '4rem',alignItems:"center"}}>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={10} md={4} sx={{ margin:"auto",padding:"2rem",display:"flex",justifyContent:"center"}}>
             <Form contactList={contactList} setContactList={setContactList}/>
           </Grid>
-          <Grid item xs={12} md={8} sx={{padding:"5rem"}}>
+          <Grid item xs={12} md={8} sx={{padding:"3rem"}}>
             <ContactTable contactList={contactList} />
           </Grid>
             

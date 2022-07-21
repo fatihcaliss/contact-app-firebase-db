@@ -3,15 +3,16 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+// import Button from '@mui/material/Button';
+// import IconButton from '@mui/material/IconButton';
+// import MenuIcon from '@mui/icons-material/Menu';
+import image from "../assets/logo.png"
 const Navbar = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
+                    {/* <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
@@ -19,11 +20,12 @@ const Navbar = () => {
                         sx={{ mr: 2 }}
                     >
                         <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    </IconButton> */}
+                    <a href="https://github.com/fatihcaliss" target="_blank"><img src={image} alt="logo" width={48}/></a>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1,marginLeft:"1rem" }}>
                         Contact App
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    {/* <Button color="inherit"><img src={image} alt="logo" width={48}/></Button> */}
                 </Toolbar>
             </AppBar>
         </Box>
