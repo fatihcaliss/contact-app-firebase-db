@@ -13,6 +13,8 @@ import Select from '@mui/material/Select';
 import { useState,useEffect } from 'react';
 import { db } from '../firebase/firebase';
 import { set, ref, push, onValue} from 'firebase/database';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 
 const Form = ({setContactList}) => {
@@ -55,8 +57,11 @@ const Form = ({setContactList}) => {
             setContactList(contactArr);
         })
     }, [])
+
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
     return (
-        <form style={{ padding: "4rem",background:"white",maxWidth:"50%"}} onSubmit={writeToDatabase}>
+        <form style={{padding: isMobile ? '1rem' : "3rem" ,background:"white"}} onSubmit={writeToDatabase}>
             <Typography variant="h4" component="h3">
                 New Contact
             </Typography>
