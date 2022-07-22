@@ -13,7 +13,7 @@ import { db } from '../firebase/firebase';
 import { ref, update } from 'firebase/database';
 
 
-export default function DialogComponent({ open,setOpen,setUpdateInfo,updateInfo }) {    
+export default function DialogComponent({ open,setOpen,setUpdateInfo,updateInfo,setOpenToast, setToastContent }) {    
     const handleClose = () => {
         setOpen(false);
     };
@@ -30,6 +30,8 @@ export default function DialogComponent({ open,setOpen,setUpdateInfo,updateInfo 
             phone:updateInfo.phone
         })
         handleClose();
+        setToastContent("Contact is successfully updated.")
+        setOpenToast(true);
     }
     return (
         <div>
@@ -53,7 +55,7 @@ export default function DialogComponent({ open,setOpen,setUpdateInfo,updateInfo 
                         id="phone"
                         label="Phone"
                         name="phone"
-                        type="number"
+                        type="tel"
                         fullWidth
                         variant="standard"
                         value={updateInfo.phone}
